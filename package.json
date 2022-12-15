@@ -16,8 +16,6 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "dagre": "^0.8.5",
-    "fabric": "^5.2.4",
-    "fabricjs-react": "^1.0.8",
     "native-base": "^3.4.17",
     "pathfinding": "^0.4.18",
     "paths-js": "^0.4.11",

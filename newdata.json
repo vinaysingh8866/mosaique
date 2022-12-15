@@ -1,0 +1,83 @@
+{
+    "template": {
+      "template-id": 1,    
+      "name": "Test template",
+      "created": 20221122,
+      "roles": [{"role-1": "Admin"}, {"role-2": "User"}, {"role-3":"Guest"}]
+    },
+    "machines": {
+      "machine-0": {
+        "machine-id": 0,
+        "display-name": "Main",
+        "starting-state": 0,
+        "states": {
+           "state-0": {
+             "display-name": "Start",
+             "roles": {
+               "role-1": {
+                 "display-data": [
+                   {"title": "Admin opening page"},
+                   {"text": "The admin can open this up for the user."},
+                   {"image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg"},
+                   {"button": "Open page", "action": "action-0"}
+                 ],
+                 "actions": {
+                   "action-0": {
+                     "display-name": "Open page",
+                     "condition": true,
+                     "transition": "transition-0"
+                   }
+                 }
+               },
+               "default-role":{
+                 "display-data": [
+                   {"title": "User waiting page"},
+                   {"text": "Waiting for admin."}
+                 ],
+                 "actions": {}
+               }
+             },
+             "transitions": {
+               "transition-0": {
+                 "display-name": "Move to open state",
+                 "new-state": "state-1"
+               }
+             }
+           },
+          "state-1": {
+             "display-name": "Open to users",
+             "roles": {
+               "role-2": {
+                 "display-data": [
+                   {"title": "Open for actions"},
+                   {"text": "Click the button below to close this."},
+                   {"image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg"},
+                   {"button": "Close"}
+                 ],
+                 "actions": {
+                   "action-0": {
+                     "display-name": "Move to close",
+                     "condition": true,
+                     "transition": "transition-1"
+                   }
+                 }
+               },
+               "default-role":{
+                 "display-data": [
+                   {"title": "Page is open to users"},
+                   {"text": "Waiting for user to close this."}
+                 ],
+                 "actions": {}
+               }
+             },
+             "transitions": {
+               "transition-1": {
+                 "display-name": "Close",
+                 "new-state": "state-0"
+               }
+             }
+          }
+        }   
+      }
+    }    
+  }
